@@ -11,9 +11,10 @@ Ensure you maintain a good and descriptive readme.md file to facilitate others c
 
 ### Common git commands  :
 
-...................
+...
 $ git clone repoURL.git                ; Clones or downloads the repository from the Github
 $ git add filename or git add .        ; git will start tracking all the changes you made
 $ git commit -m " message"             ; commit means you are telling it to save/commit the changes made;you can  only push the changes that are commited.
 $ git push                             ; pushes the changes you made to the github
 $ git pull                             ; be in the folder repository , this command will pull the changes
+...
