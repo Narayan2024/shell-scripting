@@ -28,4 +28,4 @@ $ git pull                             ; be in the folder repository , this comm
 3) When you do a git push , git prompts you to enter the PAT and that's it. You are authenticated.
 
 ```
-PS : PAT is sensitive and is not supposed to be shared with anyone.
+PS : PAT is sensitive and is not supposed to be shared with anyone..
