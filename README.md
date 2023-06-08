@@ -21,9 +21,11 @@ $ git pull                             ; be in the folder repository , this comm
 ```
 ### How to auntenticate from your local to github ?
 
-'''
+
+```
 1) Github authentication works on PAT (Personal Access Token)
 2) Your profile on Github ---> settings ---> Developer settings ---> Generate classic PAT
 3) When you do a git push , git prompts you to enter the PAT and that's it. You are authenticated.
-'''
+
+```
 PS : PAT is sensitive and is not supposed to be shared with anyone.
