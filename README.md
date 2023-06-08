@@ -19,7 +19,7 @@ $ git commit -m " message"             ; commit means you are telling it to save
 $ git push                             ; pushes the changes you made to the github
 $ git pull                             ; be in the folder repository , this command will pull the changes
 ```
-### How to auntenticate from your local to github ?
+### How to authenticate from your local to github ?
 
 
 ```
