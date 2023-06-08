@@ -19,3 +19,9 @@ $ git commit -m " message"             ; commit means you are telling it to save
 $ git push                             ; pushes the changes you made to the github
 $ git pull                             ; be in the folder repository , this command will pull the changes
 ```
+### How to auntenticate from your local to github ?
+
+'''
+1) Github authentication works on PAT (Personal Access Token)
+2) Your profile on Github ---> settings ---> Developer settings ---> Generate classic PAT
+3) When you do a git push , git prompts you to enter the PAT and that's it. You are authenticated.
