@@ -29,6 +29,7 @@ echo Line3
 
 #  \n  : new line
 # \t   : tab space                      
+# -e   : enable
 
 echo -e "Line1\nLine2"
 
