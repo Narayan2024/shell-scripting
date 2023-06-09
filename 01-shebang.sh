@@ -32,4 +32,4 @@ echo Line3
 
 echo -e "Line1\nLine2"
 
-echo -e "Line1\t\t\t\t\nLine2"
+echo -e "Line1\t\t\t\tLine2"
