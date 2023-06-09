@@ -19,7 +19,7 @@
 
 echo  Welcome to Batch54 Cloud DevOps Training
 
-# Pringing Multiple Lines 
+# Printing Multiple Lines 
 
 echo Line1
 echo Line2
