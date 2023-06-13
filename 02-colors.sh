@@ -31,3 +31,4 @@ echo -e "\e[36m I am printing Cyan Color    \e[0m"
 # Printing Background Color 
 echo -e "\e[43;32m I am printing Green Color with Yellow Background \e[0m"
 echo -e "\e[43;34m I am printing Blue Color with Yellow Background \e[0m"
+echo -e "\e[43;31m I am printing Red Color with Yellow Background \e[0m"
