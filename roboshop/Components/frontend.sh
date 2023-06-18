@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "Installing nginx"
+echo -e "Installing nginx :"
 yum install nginx -y 
 
 # The frontend is the service in RobotShop to serve the web content over Nginx.
