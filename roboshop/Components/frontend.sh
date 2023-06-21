@@ -26,6 +26,7 @@ else
     echo -e "\e[32m Failure \e[0m" 
 fi
 
+
 # ```
 # # curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
 
