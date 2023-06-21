@@ -41,8 +41,8 @@ rm -rf ${COMPONENT}-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 
 echo -n "Starting ${COMPONENT} service :"
-systemctl enable nginx
-systemctl start nginx
+systemctl enable nginx &>> $LOGFILE
+systemctl start nginx &>> $LOGFILE
 stat $?
 
 
