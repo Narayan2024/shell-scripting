@@ -11,6 +11,13 @@ fi
 echo -e "Installing nginx :"
 yum install nginx -y &>> "/tmp/${COMPONENT}.log"
 
+if [$? -eq 0] ; then
+    echo -e "\e[32m Success \e[0m" 
+else
+    echo -e "\e[32m Failure \e[0m" 
+fi
+
+
 
 # The frontend is the service in RobotShop to serve the web content over Nginx.
 
