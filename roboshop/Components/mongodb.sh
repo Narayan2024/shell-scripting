@@ -27,6 +27,10 @@ echo -n "Installing ${COMPONENT} :"
 yum install -y mongodb-org &>> $LOGFILE
 stat $?
 
+echo -n "Starting ${COMPONENT} :"
+systemctl enable mongod
+systemctl status mongod
+stat $?
 
 
 
