@@ -51,6 +51,7 @@ stat $?
 echo -n "Generating npm $COMPONENT artifacts :"
 cd /home/${APPUSER}/${COMPONENT}/
 npm install &>> $LOGFILE
+stat $?
 
 
 
