@@ -46,5 +46,7 @@ stat $?
 echo -n "Modifying the Ownership :"
 mv $COMPONENT-main/ $COMPONENT
 chown -R $APPUSER:$APPUSER /home/roboshop/$COMPONENT/
+stat $?
+
 
 
