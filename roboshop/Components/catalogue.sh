@@ -26,9 +26,13 @@ curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>>
 yum install nodejs -y &>> $LOGFILE
 stat $?
 
+id roboshop
+if [ $? -ne 0 ] ; then
 echo -n "Creating the service account :"
 useradd roboshop
 stat $?
+fi
+
 
 # echo -n "
 # curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
