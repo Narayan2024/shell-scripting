@@ -54,6 +54,30 @@ cd /home/${APPUSER}/${COMPONENT}/
 npm install &>> $LOGFILE
 stat $?
 
+echo -n "Updating the $COMPONENT systemd file :"
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal' /home/${APPUSER}/$COMPONENT systemd.service &>> $LOGFILE
+mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>> $LOGFILE
+stat $?
+
+echo -n "Starting ${COMPONENT} service : "
+systemctl daemon-reload &>> $LOGFILE
+systemctl enable catalogue &>> $LOGFILE
+systemctl restart catalogue &>> $LOGFILE
+stat $?
+
+
+echo -e "************\e[35m Installation has completed \e[0m ************"
+
+
+
+# **NOTE:** You should see the log saying `connected to MongoDB`, then only your catalogue
+# will work and can fetch the items from MongoDB
+
+# **Ref Log:**
+# {"level":"info","time":1656660782066,"pid":12217,"hostname":"ip-172-31-13-123.ec2.internal","msg":**"MongoDB connected",**"v":1}
+# ```
+
+# 1. Now, you would still see **`CATEGORIES`** on the frontend page as emp
 
 
 
