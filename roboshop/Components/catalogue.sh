@@ -18,7 +18,23 @@ else
     exit 2
 fi
 }
-echo -n "Installing Node.js :"
+
+echo -e "************\e[35m Installation has started \e[0m ************"
+
+echo -n "Configuring $COMPONENT repo and Installing $COMPONENT  :"
 curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> $LOGFILE
 yum install nodejs -y &>> $LOGFILE
 stat $?
+
+echo -n "Creating the service account :"
+useradd roboshop
+cd roboshop
+stat $?
+
+# echo -n "
+# curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
+# cd /home/roboshop
+# unzip /tmp/catalogue.zip
+# mv catalogue-main catalogue
+# cd /home/roboshop/catalogue
+# npm install
