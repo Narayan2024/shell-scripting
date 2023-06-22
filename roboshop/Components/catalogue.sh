@@ -34,11 +34,17 @@ useradd $APPUSER &>> $LOGFILE
 stat $?
 fi
 
+echo -n "Downloading the $COMPONENT component :"
+curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
+stat $?
 
-# echo -n "
-# curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
-# cd /home/roboshop
-# unzip /tmp/catalogue.zip
-# mv catalogue-main catalogue
-# cd /home/roboshop/catalogue
-# npm install
+echo -n " Copying the $COMPONENT to $APPUSER home directory :"
+cd /home/${APPUSER}
+unzip -o /tmp/catalogue.zip &>> $LOGFILE
+stat $?
+
+echo -n "Modifying the Ownership :"
+mv $COMPONENT-main/ $COMPONENT
+chown -R $APPUSER:$APPUSER /home/roboshop/$COMPONENT/
+
+
