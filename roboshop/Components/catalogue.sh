@@ -2,6 +2,7 @@
 
 COMPONENT=catalogue
 LOGFILE="/tmp/${COMPONENT}.log"
+APPUSER-"roboshop"
 
 ID=$(id -u)
 if [ $ID -ne 0 ] ; then
@@ -26,10 +27,10 @@ curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>>
 yum install nodejs -y &>> $LOGFILE
 stat $?
 
-id roboshop
+id $APPUSER
 if [ $? -ne 0 ] ; then
 echo -n "Creating the service account :"
-useradd roboshop
+useradd $APPUSER &>> $LOGFILE
 stat $?
 fi
 
