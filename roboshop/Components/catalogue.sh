@@ -40,12 +40,13 @@ stat $?
 
 echo -n "Copying the $COMPONENT to $APPUSER home directory :"
 cd /home/${APPUSER}
+rm -rf ${COMPONENT} &>> $LOGFILE
 unzip -o /tmp/catalogue.zip &>> $LOGFILE
 stat $?
 
 echo -n "Modifying the Ownership :"
 mv $COMPONENT-main/ $COMPONENT
-chown -R $APPUSER:$APPUSER /home/roboshop/$COMPONENT/
+chown -R $APPUSER:$APPUSER /home/roboshop/$COMPONENT/ &>> $LOGFILE
 stat $?
 
 echo -n "Generating npm $COMPONENT artifacts :"
