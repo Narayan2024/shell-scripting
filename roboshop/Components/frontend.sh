@@ -33,8 +33,6 @@ rm -rf * &>> $LOGFILE
 stat $?
 
 echo -n "Extracting ${COMPONENT} component :"
-stat $?
-
 unzip /tmp/${COMPONENT}.zip &>> $LOGFILE
 mv frontend-main/* . &>> $LOGFILE
 mv static/* . &>> $LOGFILE
