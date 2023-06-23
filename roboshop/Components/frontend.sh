@@ -52,9 +52,11 @@ done
 
 echo -n "Starting ${COMPONENT} service :"
 systemctl daemon-reload &>> $LOGFILE
-systemctl enable nginx &>> $LOGFILE
+systemctl enable nginx  &>> $LOGFILE
 systemctl restart nginx &>> $LOGFILE
 stat $?
+
+
 
 
 # cd /usr/share/nginx/html
