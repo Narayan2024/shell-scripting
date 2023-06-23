@@ -59,6 +59,10 @@ sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal' /home/${APPUSER}/$COMPONEN
 mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>> $LOGFILE
 stat $?
 
+for component in catalogue ; do
+    sed -i -e "/$component/s/logfile/$component.roboshop.internal/" /etc/nginx/default.d/roboshop.conf
+done
+
 echo -n "Starting ${COMPONENT} service : "
 systemctl daemon-reload &>> $LOGFILE
 systemctl enable catalogue &>> $LOGFILE
