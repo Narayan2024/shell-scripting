@@ -51,6 +51,7 @@ for component in catalogue ; do
 done
 
 echo -n "Starting ${COMPONENT} service :"
+systemctl daemon-reload &>> $LOGFILE
 systemctl enable nginx &>> $LOGFILE
 systemctl start nginx &>> $LOGFILE
 stat $?
