@@ -56,7 +56,7 @@ stat $?
 
 echo -n "Updating the $COMPONENT systemd file :"
 sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${APPUSER}/$COMPONENT systemd.service
-mv /home/${APPUSER}/catalogue/systemd.service /etc/systemd/system/catalogue.service
+mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
 stat $?
 
 echo -n "Starting ${COMPONENT} service : "
