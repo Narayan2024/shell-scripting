@@ -1,6 +1,6 @@
 #! /bin/bash
 
-COMPONENT=mongodb
+COMPONENT=mongod
 LOGFILE="/tmp/${COMPONENT}.log"
 
 ID=$(id -u)
