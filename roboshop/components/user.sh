@@ -1,6 +1,6 @@
 #! /bin/bash
 
-COMPONENT="user"
+COMPONENT=user
 
 source components/common.sh
 
@@ -30,7 +30,7 @@ stat $?
 
 echo -n "Modifying the Ownership :"
 mv $COMPONENT-main/ $COMPONENT
-chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT/ 
+chown -R $APPUSER:$APPUSER /home/roboshop/$COMPONENT/ 
 stat $?
 
 echo -n "Generating npm $COMPONENT artifacts :"
