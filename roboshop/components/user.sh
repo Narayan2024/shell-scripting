@@ -25,7 +25,7 @@ stat $?
 echo -n "Copying the $COMPONENT to $APPUSER home directory :"
 cd /home/${APPUSER}
 rm -rf ${COMPONENT} &>> $LOGFILE
-unzip -o /tmp/catalogue.zip &>> $LOGFILE
+unzip -o /tmp/${COMPONENT}.zip &>> $LOGFILE
 stat $?
 
 echo -n "Modifying the Ownership :"
@@ -39,8 +39,8 @@ npm install &>> $LOGFILE
 stat $?
 
 echo -n "Updating the $COMPONENT systemd file :"
-sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${APPUSER}/$COMPONENT systemd.service &>> $LOGFILE
-mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>> $LOGFILE
+sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${APPUSER}/$COMPONENT systemd.service
+mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
 stat $?
 
 echo -n "Starting ${COMPONENT} service : "

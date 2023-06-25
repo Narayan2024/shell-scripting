@@ -25,7 +25,7 @@ stat $?
 echo -n "Copying the $COMPONENT to $APPUSER home directory :"
 cd /home/${APPUSER}
 rm -rf ${COMPONENT} &>> $LOGFILE
-unzip -o /tmp/catalogue.zip &>> $LOGFILE
+unzip -o /tmp/${COMPONENT}.zip &>> $LOGFILE
 stat $?
 
 echo -n "Modifying the Ownership :"
