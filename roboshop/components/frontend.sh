@@ -4,7 +4,7 @@ COMPONENT=frontend
 
 source components/common.sh
 
-echo -e "************\e[35m Installation of $COMPONENT has started \e[0m ************"
+echo -e "************\e[35m Installation has started \e[0m ************"
 
 echo -n "Installing nginx :"
 yum install nginx -y &>> $LOGFILE
@@ -45,5 +45,5 @@ systemctl enable nginx  &>> $LOGFILE
 systemctl restart nginx &>> $LOGFILE
 stat $?
 
-echo -e "************\e[35m Installation of $COMPONENT has completed \e[0m ************"
+echo -e "************\e[35m Installation has completed \e[0m ************"
 
