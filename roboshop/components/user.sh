@@ -19,7 +19,7 @@ stat $?
 fi
 
 echo -n "Downloading the $COMPONENT component :"
-curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
+curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
 stat $?
 
 echo -n "Copying the $COMPONENT to $APPUSER home directory :"
