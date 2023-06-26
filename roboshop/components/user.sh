@@ -40,10 +40,10 @@ stat $?
 
 echo -n "Updating the $COMPONENT systemd file :"
 sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${APPUSER}/$COMPONENT systemd.service
-mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
+mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>> $LOGFILE
 stat $?
 
-echo -n "Starting ${COMPONENT} service : "
+echo -n "Starting user service : "
 systemctl daemon-reload &>> $LOGFILE
 systemctl enable user &>> $LOGFILE
 systemctl restart user &>> $LOGFILE
