@@ -6,12 +6,12 @@ source components/common.sh
 
 echo -e "************\e[35m Installation has started \e[0m ************"
 
-echo -n "Configuring the repo :"
+echo -n "Configuring the $COMPONENT repo :"
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
 stat $?
 
 echo -n "Installing ${COMPONENT} :"
-yum install -y mongodb-org &>> $LOGFILE
+yum install -y $COMPONENT-org &>> $LOGFILE
 stat $?
 
 echo -n "Starting ${COMPONENT} :"
@@ -38,7 +38,7 @@ unzip -o mongodb.zip &>> $LOGFILE
 stat $?
 
 echo -n "Injecting the schema :"
-cd mongodb-main
+cd $COMPONENT-main
 mongo < catalogue.js &>> $LOGFILE
 mongo < users.js &>> $LOGFILE
 stat $?
