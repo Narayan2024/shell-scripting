@@ -34,19 +34,19 @@ chown -R $APPUSER:$APPUSER /home/${APPUSER}/$COMPONENT/
 stat $?
 
 echo -n "Generating npm $COMPONENT artifacts :"
-cd /home/${APPUSER}/${COMPONENT}/
+cd /home/${APPUSER}/${COMPONENT}/ 
 npm install &>> $LOGFILE
 stat $?
 
-echo -n "Updating the $COMPONENT systemd file :"
+echo -n "Updating the $COMPONENT systemd file : "
 sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${APPUSER}/$COMPONENT systemd.service &>> $LOGFILE
 mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>> $LOGFILE
 stat $?
 
-echo -n "Starting user service : "
+echo -n "Starting $COMPONENT service : "
 systemctl daemon-reload &>> $LOGFILE
-systemctl enable user &>> $LOGFILE
-systemctl restart user &>> $LOGFILE
+systemctl enable ${COMPONENT} &>> $LOGFILE
+systemctl restart ${COMPONENT} &>> $LOGFILE
 stat $?
 
 
