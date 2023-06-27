@@ -43,7 +43,7 @@ sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongo
 mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>> $LOGFILE
 stat $?
 
-echo -n "Starting $COMPONENT service : "
+echo -n "Starting ${COMPONENT} service : "
 systemctl daemon-reload &>> $LOGFILE
 systemctl enable ${COMPONENT} &>> $LOGFILE
 systemctl restart ${COMPONENT} &>> $LOGFILE

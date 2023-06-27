@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMPONENT="mongodb"
+COMPONENT="mongod"
 
 source components/common.sh 
 
