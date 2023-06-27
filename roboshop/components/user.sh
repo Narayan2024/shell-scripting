@@ -39,7 +39,7 @@ npm install &>> $LOGFILE
 stat $?
 
 echo -n "Updating the $COMPONENT systemd file : "
-sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${APPUSER}/$COMPONENT systemd.service &>> $LOGFILE
+sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/${APPUSER}/$COMPONENT systemd.service  &>> $LOGFILE
 mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>> $LOGFILE
 stat $?
 
