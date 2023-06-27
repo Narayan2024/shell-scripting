@@ -43,11 +43,11 @@ sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_DNSNAME/mongod
 mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>> $LOGFILE
 stat $?
 
-echo -n "Starting user service : "
-systemctl daemon-reload &>> $LOGFILE
-systemctl enable user &>> $LOGFILE
-systemctl restart user &>> $LOGFILE
-stat $?
+# echo -n "Starting user service : "
+# systemctl daemon-reload &>> $LOGFILE
+# systemctl enable user &>> $LOGFILE
+# systemctl restart user &>> $LOGFILE
+# stat $?
 
 
 echo -e "************\e[35m Installation has completed \e[0m ************"
