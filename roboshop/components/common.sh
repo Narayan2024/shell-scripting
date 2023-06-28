@@ -87,4 +87,6 @@ DOWNLOAD_AND_EXTRACT    # calling DOWNLOAD_AND_EXTRACT function to download the 
 
 NPM_INSTALL             # Creates artifacts
 
+CONFIGURE_SVC           # Configuring the service
+
 }
