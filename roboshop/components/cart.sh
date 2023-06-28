@@ -29,7 +29,7 @@ unzip -o /tmp/${COMPONENT}.zip  &>> $LOGFILE
 stat $?
 
 echo -n "Modifying the Ownership :"
-mv $user-main/$COMPONENT
+mv $cart-main/$COMPONENT
 chown -R $APPUSER:$APPUSER /home/roboshop/$COMPONENT/ 
 stat $?
 
@@ -45,8 +45,8 @@ stat $?
 
 echo -n "Starting $COMPONENT service : "
 systemctl daemon-reload &>> $LOGFILE
-systemctl enable user &>> $LOGFILE
-systemctl restart user &>> $LOGFILE
+systemctl enable cart &>> $LOGFILE
+systemctl restart cart &>> $LOGFILE
 stat $?
 
 
