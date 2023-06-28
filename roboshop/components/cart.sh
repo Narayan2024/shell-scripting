@@ -29,7 +29,7 @@ unzip -o /tmp/${COMPONENT}.zip  &>> $LOGFILE
 stat $?
 
 echo -n "Modifying the Ownership :"
-mv $cart-main/$COMPONENT
+mv ${cart}-main/$COMPONENT
 chown -R $APPUSER:$APPUSER /home/roboshop/$COMPONENT/ 
 stat $?
 
