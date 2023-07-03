@@ -24,8 +24,15 @@ stat $?
 # I want this to be executed only if the default password reset was not done
 echo "show databases;" | mysql -uroot -pRoboShop@1 &>> LOGFILE
 if [ $? -ne 0 ] ; then 
-echo -n "Performing root user password reset : "
-echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_ROOT_PASSWORD}  &>> LOGFILE
-stat $? 
+    echo -n "Performing root user password reset :"
+    echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_ROOT_PASSWORD}  &>> LOGFILE
+    stat $? 
+fi
+
+echo "show plugins;" | mysql -uroot -pRoboShop@1 | grep validate_password &>> LOGFILE
+if [ $? -eq 0 ] ; then 
+    echo -n "Uninstalling the validate_password plugin :"
+    echo "UNINSTALL PLUGIN validate_password;" | mysql -uroot -pRoboShop@1   &>> LOGFILE
+    stat $? 
 fi
 
