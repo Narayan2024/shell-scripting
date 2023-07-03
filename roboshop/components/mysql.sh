@@ -36,3 +36,14 @@ if [ $? -eq 0 ] ; then
     stat $? 
 fi
 
+echo -n "Downloading the $COMPONENT schema:"
+curl -s -L -o /tmp/mysql.zip "https://github.com/stans-robot-project/mysql/archive/main.zip"
+stat $?
+
+echo -n "Extracting the $COMPONENT schema :"
+cd /tmp
+unzip -o /tmp/${COMPONENT}.zip
+cd ${COMPONENT}-main
+mysql -u root -pRoboShop@1 <shipping.sql
+stat $?
+
