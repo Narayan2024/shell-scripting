@@ -9,7 +9,7 @@ echo -n "Configuring the $COMPONENT repository : "
 stat $?
 
 echo -n "Installing $COMPONENT : "
-yum install mysql-community-server -y  &>> LOGFILE
+yum install mysql-community-server -y     &>> LOGFILE
 stat $?
 
 echo -n "Starting $COMPONENT : "
