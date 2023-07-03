@@ -18,7 +18,7 @@ systemctl start mysqld &>> LOGFILE
 stat $?
 
 echo -n "Fetching default root password : "
-DEFAULT_ROOT_PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}')
+DEFAULT_ROOT_PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}')   &>> LOGFILE
 stat $?
 
 # I want this to be executed only if the default password reset was not done
@@ -37,13 +37,13 @@ if [ $? -eq 0 ] ; then
 fi
 
 echo -n "Downloading the $COMPONENT schema:"
-curl -s -L -o /tmp/mysql.zip "https://github.com/stans-robot-project/mysql/archive/main.zip"
+curl -s -L -o /tmp/mysql.zip "https://github.com/stans-robot-project/mysql/archive/main.zip"   &>> LOGFILE
 stat $?
 
 echo -n "Extracting the $COMPONENT schema :"
 cd /tmp
-unzip -o /tmp/${COMPONENT}.zip
+unzip -o /tmp/${COMPONENT}.zip    &>> LOGFILE
 cd ${COMPONENT}-main
-mysql -u root -pRoboShop@1 <shipping.sql
+mysql -u root -pRoboShop@1 <shipping.sql    &>> LOGFILE
 stat $?
 
