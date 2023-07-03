@@ -37,13 +37,13 @@ if [ $? -eq 0 ] ; then
 fi
 
 echo -n "Downloading the $COMPONENT schema:"
-curl -s -L -o /tmp/mysql.zip "https://github.com/stans-robot-project/mysql/archive/main.zip"   &>> LOGFILE
+curl -s -L -o /tmp/mysql.zip "https://github.com/stans-robot-project/mysql/archive/main.zip"  &>> LOGFILE
 stat $?
 
 echo -n "Extracting the $COMPONENT schema :"
 cd /tmp
-unzip -o /tmp/${COMPONENT}.zip    &>> LOGFILE
+unzip -o /tmp/${COMPONENT}.zip  &>> LOGFILE
 cd ${COMPONENT}-main
-mysql -u root -pRoboShop@1 <shipping.sql    &>> LOGFILE
+mysql -u root -pRoboShop@1 <shipping.sql  &>> LOGFILE
 stat $?
 
