@@ -23,7 +23,7 @@ stat $?
 #This to be run only if the user account doesn't exist
 rabbitmqctl list_users | grep roboshop  &>> LOGFILE
 if [ $? -ne 0 ] ; then
-    echo -n "Creating the $COMPONENT $APPUSER : "
+    echo -n "Creating the $COMPONENT $APPUSER : "  &>> $LOGFILE
     rabbitmqctl add_user roboshop roboshop123  &>> $LOGFILE
     stat $?
 fi
