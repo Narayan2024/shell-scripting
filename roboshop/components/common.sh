@@ -110,4 +110,6 @@ DOWNLOAD_AND_EXTRACT    # calling DOWNLOAD_AND_EXTRACT function to download the 
 
 MVN_PACKAGE             # calling maven package
 
+CONFIGURE_SVC
+
 }
