@@ -14,22 +14,17 @@ echo -n "Installing ${COMPONENT} :"
 yum install -y $COMPONENT-org &>> $LOGFILE
 stat $?
 
-echo -n "Starting ${COMPONENT} :"
-systemctl enable mongod &>> $LOGFILE
-systemctl start mongod &>> $LOGFILE
-stat $?
-
 echo -n "Enabling the DB visibility"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 stat $?
 
 echo -n "Starting ${COMPONENT} :"
-systemctl enable mongod &>> $LOGFILE
-systemctl start mongod &>> $LOGFILE
+systemctl daemon-reload mongod      &>> $LOGFILE
+systemctl enable mongod      &>> $LOGFILE
+systemctl restart mongod       &>> $LOGFILE
 stat $?
 
 echo -n "Downloading the $COMPONENT schema :"
-
 curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
 stat $?
 
@@ -40,8 +35,8 @@ stat $?
 
 echo -n "Injecting the schema :"
 cd $COMPONENT-main
-mongo < catalogue.js &>> $LOGFILE
-mongo < users.js &>> $LOGFILE
+mongo < catalogue.js    &>> $LOGFILE
+mongo < users.js        &>> $LOGFILE
 stat $?
 
 echo -e "************\e[35m Installation has completed \e[0m ************"
