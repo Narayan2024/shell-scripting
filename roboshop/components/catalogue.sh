@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMPONENT="catalogue"
+COMPONENT=catalogue
 
 source components/common.sh
 
