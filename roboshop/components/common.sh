@@ -112,3 +112,11 @@ MVN_PACKAGE             # calling maven package
 CONFIGURE_SVC
 
 }
+
+PYTHON() {
+    echo -n "Installing python and it's dependencies :"
+    yum install python36 gcc python3-devel -y  &>> LOGFILE
+    stat $?
+
+    DOWNLOAD_AND_EXTRACT
+}
