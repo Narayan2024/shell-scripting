@@ -36,8 +36,8 @@ stat $?
 
 echo -n "Copying the $COMPONENT to $APPUSER home directory :"
 cd /home/${APPUSER}
-rm -rf ${COMPONENT} &>> $LOGFILE
-unzip -o /tmp/${COMPONENT}.zip &>> $LOGFILE
+rm -rf ${COMPONENT}         &>> $LOGFILE
+unzip -o /tmp/${COMPONENT}.zip  &>> $LOGFILE
 stat $?
 
 echo -n "Modifying the Ownership :"
@@ -74,7 +74,6 @@ NODEJS() {
 
 echo -n "Configuring $COMPONENT repo and Installing Nodejs  :"
 curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> $LOGFILE
-yum install nodejs -y &>> $LOGFILE
 stat $?
 
 echo -n "Installing Nodejs  :"
