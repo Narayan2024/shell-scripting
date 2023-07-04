@@ -93,7 +93,7 @@ CONFIGURE_SVC           # Configuring the service
 
 MVN_PACKAGE() {
     echo -n "Preparing $COMPONENT artifacts : "
-    cd /home/${APPUSER}/${COMPONENT}
+    cd /home/${APPUSER}/${COMPONENT}  &>> $LOGFILE
     mvn clean package    &>> $LOGFILE
     mv target/shipping-1.0.jar shipping.jar  &>> $LOGFILE
     stat $?
@@ -107,4 +107,7 @@ JAVA() {
 CREATE_USER             # calling Create_user function to create the roboshop user account
 
 DOWNLOAD_AND_EXTRACT    # calling DOWNLOAD_AND_EXTRACT function to download the content
+
+MVN_PACKAGE             # calling maven package
+
 }
