@@ -114,6 +114,9 @@ CONFIGURE_SVC
 }
 
 PYTHON() {
+
+    echo -e "************\e[35m Installation has started \e[0m ************"
+
     echo -n "Installing python and it's dependencies :"
     yum install python36 gcc python3-devel -y  &>> LOGFILE
     stat $?
@@ -126,4 +129,6 @@ echo -n "Installing $COMPONENT :"
 cd /home/roboshop/payment   &>> LOGFILE
 pip3 install -r requirements.txt &>> LOGFILE
 stat $?
+
+echo -e "************\e[35m Installation has completed \e[0m ************"
 }
