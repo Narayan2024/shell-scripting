@@ -47,7 +47,7 @@ stat $?
 }
 
 NPM_INSTALL() {
-        echo -n "Generating npm $COMPONENT artifacts :"
+echo -n "Generating npm $COMPONENT artifacts :"
 cd /home/${APPUSER}/${COMPONENT}/
 npm install &>> $LOGFILE
 stat $?
@@ -56,24 +56,26 @@ stat $?
 
 CONFIGURE_SVC () {
 
-    echo -n "Updating the $COMPONENT systemd file :"
+echo -n "Updating the $COMPONENT systemd file :"
 sed -i  -e 's/AMQPHOST/rabbitmq.roboshop.internal/' -e 's/USERHOST/user.roboshop.internal/' -e 's/CARTHOST/cart.roboshop.internal/' -e 's/DBHOST/mysql.roboshop.internal/' -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${APPUSER}/${COMPONENT}/systemd.service  &>> $LOGFILE
-mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>> $LOGFILE
+mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service   &>> $LOGFILE
 stat $?
 
 echo -n "Starting ${COMPONENT} service : "
-systemctl daemon-reload &>> $LOGFILE
-systemctl enable $COMPONENT &>> $LOGFILE
-systemctl restart $COMPONENT &>> $LOGFILE
+systemctl daemon-reload       &>> $LOGFILE
+systemctl enable $COMPONENT   &>> $LOGFILE
+systemctl restart $COMPONENT  &>> $LOGFILE
 stat $?
+
+echo -e "*********** \e[35m $COMPONENT Installation has Completed \e[0m ***********"
 
 }
 
 NODEJS() {
     echo -e "************\e[35m Installation has started \e[0m ************"
 
-echo -n "Configuring $COMPONENT repo and Installing Nodejs  :"
-curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> $LOGFILE
+echo -n "Configuring the $COMPONENT repo :"
+curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -  &>> $LOGFILE
 stat $?
 
 echo -n "Installing Nodejs  :"
