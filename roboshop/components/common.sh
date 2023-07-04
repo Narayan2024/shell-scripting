@@ -90,3 +90,21 @@ NPM_INSTALL             # Creates artifacts
 CONFIGURE_SVC           # Configuring the service
 
 }
+
+MVN_PACKAGE() {
+    echo -n "Preparing $COMPONENT artifacts : "
+    cd /home/${APPUSER}/${COMPONENT}
+    mvn clean package    &>> $LOGFILE
+    mv target/shipping-1.0.jar shipping.jar  &>> $LOGFILE
+    stat $?
+}
+
+JAVA() {
+    echo -n "Installing Maven : "
+    yum install maven -y     &>> $LOGFILE
+    stat $?
+
+CREATE_USER             # calling Create_user function to create the roboshop user account
+
+DOWNLOAD_AND_EXTRACT    # calling DOWNLOAD_AND_EXTRACT function to download the content
+}
