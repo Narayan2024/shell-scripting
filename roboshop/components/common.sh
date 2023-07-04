@@ -61,7 +61,7 @@ sed -i  -e 's/AMQPHOST/rabbitmq.roboshop.internal/' -e 's/USERHOST/user.roboshop
 mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service   &>> $LOGFILE
 stat $?
 
-echo -n "Starting ${COMPONENT} service : "
+echo -n " Starting $COMPONENT service : "
 systemctl daemon-reload       &>> $LOGFILE
 systemctl enable $COMPONENT   &>> $LOGFILE
 systemctl restart $COMPONENT  &>> $LOGFILE
