@@ -119,4 +119,9 @@ PYTHON() {
     stat $?
 
     DOWNLOAD_AND_EXTRACT
+
+echo -n "Installing $COMPONENT :"
+cd /home/roboshop/payment   &>> LOGFILE
+pip3 install -r requirements.txt &>> LOGFILE
+stat $?
 }
