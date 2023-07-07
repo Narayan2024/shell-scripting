@@ -49,7 +49,7 @@ stat $?
 NPM_INSTALL() {
 echo -n "Generating npm $COMPONENT artifacts :"
 cd /home/${APPUSER}/${COMPONENT}/
-npm install &>> $LOGFILE
+npm install  &>> $LOGFILE
 stat $?
 
 }
@@ -57,8 +57,8 @@ stat $?
 CONFIGURE_SVC () {
 
 echo -n "Updating the $COMPONENT systemd file :"
-sed -i  -e 's/AMQPHOST/rabbitmq.roboshop.internal/' -e 's/USERHOST/user.roboshop.internal/' -e 's/CARTHOST/cart.roboshop.internal/' -e 's/DBHOST/mysql.roboshop.internal/' -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${APPUSER}/${COMPONENT}/systemd.service  &>> $LOGFILE
-mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service   &>> $LOGFILE
+sed -i -e 's/AMQPHOST/rabbitmq.roboshop.internal/' -e 's/USERHOST/user.roboshop.internal/' -e 's/CARTHOST/cart.roboshop.internal/' -e 's/DBHOST/mysql.roboshop.internal/' -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${APPUSER}/${COMPONENT}/systemd.service  &>> $LOGFILE
+mv /home/${APPUSER}/${COMPONENT}/systemd.service  /etc/systemd/system/${COMPONENT}.service   &>> $LOGFILE
 stat $?
 
 echo -n " Starting $COMPONENT service : "
@@ -125,7 +125,7 @@ PYTHON() {
 
     CREATE_USER             # calling Create_user function to create the roboshop user account
 
-    DOWNLOAD_AND_EXTRACT
+    DOWNLOAD_AND_EXTRACT    # calling DOWNLOAD_AND_EXTRACT  function download the content
 
 echo -n "Installing $COMPONENT :"
 cd /home/${APPUSER}/$COMPONENT  &>> LOGFILE
@@ -140,5 +140,4 @@ sed -i -e "/^uid/ c uid=${USERID}" -e "/^gid/ c gid=${GROUPID}"  home/${APPUSER}
 
 CONFIGURE_SVC
 
-echo -e "************\e[35m Installation has completed \e[0m ************"
 }
