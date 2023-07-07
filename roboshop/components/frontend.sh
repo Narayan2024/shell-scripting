@@ -44,4 +44,5 @@ echo -e "************\e[35m Installation has completed \e[0m ************"
 # sudo sed -i -e "/user/s/localhost/user.roboshop.internal/" /etc/nginx/default.d/roboshop.conf
 # sudo sed -i -e "/cart/s/localhost/cart.roboshop.internal/" /etc/nginx/default.d/roboshop.conf
 # sudo sed -i -e "/shipping/s/localhost/shipping.roboshop.internal/" /etc/nginx/default.d/roboshop.conf
+# sudo systemctl restart nginx
 
