@@ -10,7 +10,6 @@ if [ $ID -ne 0 ] ; then
 fi
 
 stat() {
-
     if [ $1 -eq 0 ] ; then
     echo -e "\e[32m Success \e[0m" 
 else
@@ -23,7 +22,7 @@ CREATE_USER (){
     id $APPUSER &>> $LOGFILE
 if [ $? -ne 0 ] ; then
 echo -n "Creating the service account :"
-useradd $APPUSER &>> $LOGFILE
+useradd $APPUSER  &>> $LOGFILE
 stat $?
 fi
 }
