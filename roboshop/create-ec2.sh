@@ -3,6 +3,7 @@
 # AMI_ID="ami-0c1d144c8fdd8d690"
 
 COMPONENT=$1
+ENV=$2
 HOSTEDZONEID="Z018970427MPVGA85AVVY"
 
 if [ -z "$1" ] || [ -z "$2" ] ; then
