@@ -46,4 +46,4 @@ else
 
     create_ec2
 
-fi
+fi 
