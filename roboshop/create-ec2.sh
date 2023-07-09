@@ -1,6 +1,7 @@
 #!bin/bash
 
 COMPONENT=$1
+HOSTEDZONEID=Z018970427MPVGA85AVVY
 
 if [ -z "$1" ] ; then
         echo -e "\e[31m COMPONENT NAME IS NEEDED \e[0m"
@@ -18,6 +19,10 @@ echo -e " ****** Lauching the server ******* "
 IPADDRESS=$(aws ec2 run-instances --image-id ${AMI_ID} --security-group-ids ${SG_ID} --instance-type t2.micro --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$COMPONENT}]" | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
 echo -e "Private IPADDRESS of the $COMPONENT is \e[35m $IPADDRESS \e[0m"
+
+echo -e "\e[36m **** Creating DNS record for the $COMPONENT **** \e[0m"
+sed -e "/s/COMPONENT/${COMPONENT}/" -e "/s/IPADDRESS/${IPADDRESS}" route53.json > /tmp/record.json
+aws route53 change-resource-record-sets --hosted-zone-id $HOSTEDZONEID --change-batch file://tmp/record.json
 
 
 
