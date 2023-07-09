@@ -2,7 +2,7 @@
 
 COMPONENT=$1
 
-if [ -z $1 ] ; then
+if [ -z "$1" ] ; then
         echo -e "\e[31m COMPONENT NAME IS NEEDED \e[0m"
         echo -e "\e[35m Ex usage : bash create-ec2.sh \e[0m"
 fi
