@@ -31,7 +31,7 @@ create-ec2() {
 
 }
 
-if [ "$1" = "all"] ; then
+if [ "$1" = "all" ] ; then
 
     for component in frontend mongodb catalogue redis user cart shipping payment mysql ; do
         COMPONENT=$component
