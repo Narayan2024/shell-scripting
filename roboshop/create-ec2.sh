@@ -7,6 +7,7 @@ HOSTEDZONEID=Z018970427MPVGA85AVVY
 if [ -z "$1" ] || [ -z "$2" ] ; then
         echo -e "\e[31m COMPONENT NAME IS NEEDED \e[0m"
         echo -e "\e[35m Ex usage : \n \t \t bash create-ec2.sh componentName envName\e[0m"
+        exit 1
 fi
 
 AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=DevOps-LabImage-CentOS7" | jq '.Images[].ImageId'|sed -e 's/"//g')
