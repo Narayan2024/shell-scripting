@@ -12,6 +12,7 @@
 ### Now if you run the script, how system will come to know which interpretor it has to use, that's where SHEBANG Notions helps
 
 #### How to run a linux bash script ? 
+#### How to run a linux bash script ? 
 
     # *   bash scriptName.sh 
     # *   sh scriptName.sh 
