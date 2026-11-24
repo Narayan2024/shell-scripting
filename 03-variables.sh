@@ -29,3 +29,4 @@ echo -e "Value of the variable d is \e[32m $d \e[0m"
 
 # "Double Quotes "
 # 'Single Quotes'
+# Started the practice again in 2026
