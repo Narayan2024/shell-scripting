@@ -37,4 +37,4 @@ echo -e "Line1\nLine2"
 echo -e "Line1\t\t\t\tLine2"
 # Starting the practice again.
 
-echo -e "Line1\n\t\t\n\Line2"
+echo -e "Line1\n\t\t\nLine2"
