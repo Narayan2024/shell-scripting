@@ -22,6 +22,7 @@ echo -e "Value of the variable a is $a"
 echo -e "Value of the variable b is \e[31m $b \e[0m"
 echo -e "Value of the variable c is \e[33m $c \e[0m"
 echo -e "Value of the variable d is \e[31m $d \e[0m"
+echo -e "value of variable e is \e[31m $d \e[0m"
 
 # If you try to print a variable that is not declared, bash will consider that as a null rather an error 
 
