@@ -15,7 +15,7 @@
 a=10 
 b=20
 c=30
-
+d=40
 # Syntax : $variableName : $ is going to print the value of the variable
 echo $a 
 echo -e "Value of the variable a is $a"
